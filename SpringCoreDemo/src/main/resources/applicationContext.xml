@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context = "http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+                http://www.springframework.org/schema/beans 
+                http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/context
+   				http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	
+	<!-- Enable Annotation based config  -->
+	 <context:component-scan base-package="com.github.yogeshkharad"/>
+	
+	<bean id="serviceC" class="com.github.yogeshkharad.ServiceC" scope = "prototype" />
+
+	<bean id="clientA" class="com.github.yogeshkharad.ClientA" init-method="init" destroy-method ="destroy">
+		<property name="service" ref="serviceC" />
+	</bean>
+	
+	<bean id="serviceB" class="com.github.yogeshkharad.ServiceB" />
+
+	<bean id="clientB" class="com.github.yogeshkharad.ClientB" scope = "singleton">
+		<constructor-arg name="service" ref="serviceB" />
+	</bean>
+	
+	<!-- <bean id="clientB" class="com.github.yogeshkharad.ClientB" scope = "singleton" autowire="constructor"/> -->
+		
+	
+	<bean id = "helloWorld" class = "com.github.yogeshkharad.HelloWorld" >
+      <property name = "message1" value = "Hello World!"/>
+      <property name = "message2" value = "Happy to see you all"/>
+   </bean>
+
+   <bean id ="helloIndia" class = "com.github.yogeshkharad.HelloGrads" parent = "helloWorld">
+      <property name = "message1" value = "Hello Grads!"/>
+      <property name = "message3" value = "You guys awesome!"/>
+   </bean>
+		
+</beans>
