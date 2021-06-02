@@ -33,7 +33,7 @@
 
    <bean id ="helloIndia" class = "com.github.yogeshkharad.HelloGrads" parent = "helloWorld">
       <property name = "message1" value = "Hello Grads!"/>
-      <property name = "message3" value = "You guys awesome!"/>
+      <property name = "message3" value = "You guys are awesome!"/>
    </bean>
 		
 </beans>
