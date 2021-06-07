@@ -20,7 +20,7 @@
 	<bean id="serviceB" class="com.github.yogeshkharad.ServiceB" />
 
 	<bean id="clientB" class="com.github.yogeshkharad.ClientB" scope = "singleton">
-		<constructor-arg name="service" ref="serviceB" />
+		<constructor-arg name="service" ref="serviceC" />
 	</bean>
 	
 	<!-- <bean id="clientB" class="com.github.yogeshkharad.ClientB" scope = "singleton" autowire="constructor"/> -->
